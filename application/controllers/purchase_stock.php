@@ -106,6 +106,7 @@ class purchase_stock extends CI_Controller{
 	}
 
 	function server_side(){		
+		$this->load->helper('text');	
 		$this->load->library('myencryption');
 		$session_data = $this->session->all_userdata();
 		if ( isset($session_data['user']) && $session_data['user'] == TRUE ) {
@@ -129,7 +130,14 @@ class purchase_stock extends CI_Controller{
 			array( 'db' => 'catagories_id',  'dt' => 'categories' ),
 			array( 'db' => 'unit_price',  'dt' => 'unit_price' ),
 			array( 'db' => 'quantity',  'dt' => 'unit_in_stock' ),	
-			array( 'db' => 'description',  'dt' => 'unit_in_order' ),
+			array( 'db' => 'description',  'dt' => 'unit_in_order',
+
+					'formatter' => function( $d, $row ) {
+			            // Technically a DOM id cannot start with an integer, so we prefix
+			            // a string. This can also be useful if you have multiple tables
+			            // to ensure that the id is unique with a different prefix		
+			           return word_limiter($d,5);
+			        }),
 			array(
 			        'db' => 'id',
 			        'dt' => 'id',

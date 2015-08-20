@@ -95,7 +95,7 @@ $this->load->helper('inflector');
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<?php echo site_url();?>security"><i class='fa fa-users'></i>&nbsp Create User</a></li>                            
                             <li class="divider"></li>
-                            <li><a href="<?php echo site_url()?>security"><i class="fa fa-cog"></i> Manage User Permission</a></li>                      
+                            <li><a href="<?php echo site_url()?>security/permission"><i class="fa fa-cog"></i> Manage User Permission</a></li>                      
                         </ul>                           
                     </li>
                 </ul>               

@@ -46,7 +46,6 @@
                                     <option>Regular Customer</option>
                                 </select>
                             </div>      
-
                         </div>
                          <div class="form-group">
                             <label for="email" class="col-sm-2 control-label">Employee Name:</label>
@@ -59,7 +58,7 @@
                             <label for="username" class="col-sm-2 control-label">Date:</label>
                             <div class="col-sm-5">
                                 <input type='text' name='date_tim1'​ ng-model='date_time' ng-init=" date_time = '<?php echo date('Y-m-d');?>'" disabled  class='disabled form-control'>
-                                                <input type='text' name='date_time'​ ng-model='date_time' ng-init=" date_time = '<?php echo date('Y-m-d');?>'"   class=' hidden form-control'>
+                                <input type='text' name='date_time'​ ng-model='date_time' ng-init=" date_time = '<?php echo date('Y-m-d');?>'"   class=' hidden form-control'>
                             </div>
                         </div>
                         <div class='panel panel-default'>

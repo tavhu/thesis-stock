@@ -89,4 +89,68 @@ class Security extends CI_Controller {
 		}
 	}
 
+	function Permission(){
+
+			$this->load->view('header_view');
+			$this->load->view('manage_permission_view');
+			$this->load->view('footer_view');
+	}
+
+	function server_side(){		
+
+		$this->load->library('myencryption');
+		$session_data = $this->session->all_userdata();
+		if ( isset($session_data['user']) && $session_data['user'] == TRUE ) {
+			
+		}else{
+            redirect('','refresh');
+        }
+
+		$table = 'tbl_position';
+		// Table's primary key
+		$primaryKey = 'id';
+
+		// Array of database columns which should be read and sent back to DataTables.
+		// The `db` parameter represents the column name in the database, while the `dt`
+		// parameter represents the DataTables column identifier. In this case simple
+		// indexes
+		
+		$columns = array(			
+			array( 'db' => 'name', 'dt' => 'name' ),
+			array( 'db' => 'permission',  'dt' => 'Stock' ),
+			array( 'db' => 'permission',  'dt' => 'Category' ),
+			array( 'db' => 'permission',  'dt' => 'Supplier' ),
+			array( 'db' => 'permission',  'dt' => 'Report' ),	
+			array( 'db' => 'permission',  'dt' => 'Employee' ),
+			array(
+			        'db' => 'id',
+			        'dt' => 'Security',
+			        'formatter' => function( $d, $row ) {
+			            // Technically a DOM id cannot start with an integer, so we prefix
+			            // a string. This can also be useful if you have multiple tables
+			            // to ensure that the id is unique with a different prefix		
+			                    
+			            return '<input type="checkbox" checked';
+			        }
+			 ),		
+		);
+
+		// SQL server connection information
+		$sql_details = array(
+			'user' => 'root',
+			'pass' => '',
+			'db'   => 'thesis_stock',
+			'host' => 'localhost'
+		);
+
+		/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+		 * If you just want to use the basic configuration for DataTables with PHP
+		 * server-side, there is no need to edit below this line.
+		 */
+		$this->load->helper('ssp_helper');
+		echo json_encode(
+			SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+		);
+	}
+
 }
