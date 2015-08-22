@@ -1,0 +1,106 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #55555;
+  font-size: 13px;
+  background-color:#f9f9f9;
+}
+
+#white-color{
+	color:white;
+}
+#white-color:hover{
+	color:black;
+}
+#white-color:focus{
+	color:black;
+}
+.navtop{
+
+	padding-top:10px;
+	background-color:#428bca;	
+	padding-bottom:5px;
+
+}
+.navbar-brand{
+
+	padding-top:5px;
+	padding-left:0px;
+}
+#loginbody{
+
+	border:1px solid #bbb; 
+	border-top:5px solid #428bca;
+	text-align:center;
+	padding-bottom: 20px;	
+	background-color:white;
+}
+#loginheader{
+	margin-bottom:10px;
+}
+#logincontainer{
+	margin-top:100px;	
+}
+h4{
+	padding:10px;	
+}
+.form-group{
+
+	text-align: left;
+}
+#footer{
+
+	background-color:#bbb; 
+	padding:20px; 
+	margin-top:0.5%;
+	color:white;
+	border-top:1px solid white;
+}
+
+.under_line{
+	border-bottom:1px solid #428bca;
+	margin-bottom:30px;
+}
+#closeicon:hover{
+	color:red;
+	cursor:pointer;
+}
+.input-group-addon:hover,#remember_me_label:hover{
+	cursor:pointer;
+}
+#example th{
+	text-transform: bold;
+	color:white;
+	background-color: #428bca;
+}
+td.details-control {
+    background: url('open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.details td.details-control {
+    background: url('close.png') no-repeat center center;
+}
+
+.dashstyle{
+	border:1px solid green;
+	text-align:center; 
+	border-radius:7px; 
+	margin-top:15px; 
+	margin-bottom:15px; 
+	padding:10px;
+}
+.text-centered{
+	text-align: center;
+}
+@media (min-width: 768px) { 
+
+#dashboardbox{
+	padding:150px;
+	padding-top:50px; 
+	padding-bottom:50px;
+}
+
+.border-red{
+	border-color:red !important;
+}
+ }
+
