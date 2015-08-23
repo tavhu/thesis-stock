@@ -20,7 +20,7 @@
     			<div class="panel-body">    	
           		 <div class="panel panel-default">
                     <div class="panel-heading">
-                     From <input type='text' id="datepickerfrom" name='datepickerfrom' > to <input type='text' id="datepickerto" name='datepickerto'> <input type='submit' id='search' > <input type='button' onclick='printdiv(printf)' value='print' >
+                     From <input type='text' id="datepickerfrom" name='datepickerfrom' > to <input type='text' id="datepickerto" name='datepickerto'> <input type='submit' id='search' > <input type='button' value='print' >
                     </div>
                </div>
                <div class="col-sm-12" id='recieve'>
@@ -35,11 +35,12 @@
     </div>
 </div>
 <script src="<?php echo base_url();?>assets/js/kendo.all.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/printdiv.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/jasny-bootstrap.js"></script>
 <script type="text/javascript">
 
 $.validate(); 
-  $('#cancel').click(function(){
+  $('#cancel').click(function(){    
         parent.history.back();
         return false;
        });
@@ -48,7 +49,6 @@ $.validate();
 <script type="text/javascript">
   
    $(function() {
-
  $('#datepickerfrom').datepicker({ dateFormat: 'yy-mm-dd' }).val();
   $('#datepickerto').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 
@@ -73,7 +73,8 @@ $("#search").click(
                     success: function(data) {
                         // return success                      
                         if (data.length > 0) {       
-                            $('#recieve').html(data);                               
+                            $('#recieve').html(data);   
+                            $("#recieve").printThis();                                                  
                         }
                     }
                 });

@@ -309,6 +309,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/productlist.js"> </script>
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jquery-ui.css">
 <script src="<?php echo base_url()?>assets/js/jquery-ui.js"></script>
+<script src="<?php echo base_url();?>assets/js/printdiv.js"></script>
 
 <script type="text/javascript">
 <?php 
