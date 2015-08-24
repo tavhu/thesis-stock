@@ -20,7 +20,7 @@
     			<div class="panel-body">    	
           		 <div class="panel panel-default">
                     <div class="panel-heading">
-                     From <input type='text' id="datepickerfrom" name='datepickerfrom' > to <input type='text' id="datepickerto" name='datepickerto'> <input type='submit' id='search' > <input type='button' value='print' >
+                     From <input type='text' id="datepickerfrom" name='datepickerfrom' > to <input type='text' id="datepickerto" name='datepickerto'> <input type='submit' id='search' > <input type='button' id='printbutton' value='print' >
                     </div>
                </div>
                <div class="col-sm-12" id='recieve'>
@@ -54,7 +54,9 @@ $.validate();
 
   });
 
-
+$('#printbutton').click(function(){
+$("#recieve").printThis();      
+});
 $("#search").click(
     function(){
     var datepickerfrom  = $("#datepickerfrom").val();
@@ -73,8 +75,7 @@ $("#search").click(
                     success: function(data) {
                         // return success                      
                         if (data.length > 0) {       
-                            $('#recieve').html(data);   
-                            $("#recieve").printThis();                                                  
+                            $('#recieve').html(data);                                                                             
                         }
                     }
                 });

@@ -205,8 +205,18 @@ $scope.saveProducts = function(Row){
                           data: post_data,                 
                           success: function(data) {
                               // return success 
-                             $scope.Invoice_id = data;    
-                             $("#printableArea").printThis();
+                             $scope.Invoice_id = data;  
+                             $scope.names = [];
+                             $scope.subtotal = 0;
+                             $scope.discount = 0 ;
+                             $scope.paid = 0;
+                             alert('23'); 
+                             var printContents = document.getElementById('printableArea').innerHTML;
+							 var popupWin = window.open('', '_blank', 'width=300,height=300');
+							 popupWin.document.open()
+							 popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="<?php <?php echo base_url();?>assets/css/bootstrap.css; ?>" /></head><body onload="window.print()">' + printContents + '</html>');
+							 popupWin.document.close();
+                             $('#productcode').focus();           
                           }
                       });
             
@@ -218,7 +228,7 @@ $scope.printDiv = function(divName) {
   var popupWin = window.open('', '_blank', 'width=300,height=300');
   popupWin.document.open()
   popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="<?php <?php echo base_url();?>assets/css/bootstrap.css; ?>" /></head><body onload="window.print()">' + printContents + '</html>');
-  popupWin.document.close();
+  popupWin.document.close();  
 
 } 
 

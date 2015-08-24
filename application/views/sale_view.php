@@ -294,10 +294,7 @@
                             <div class='col-sm-6'>
                                 <input type='submit' value='{{btnSubmit}}' ng-click='saveProducts(sd)' ng-init='btnSubmit = "Submit"' class='btn btn-primary'  >                                  
                                 <input type='button' value='Cancel'  class='btn btn-default' id="cancel">                               
-                            </div>   
-                            <div class="col-sm-3">
-                                 <input type="button" ng-click="printDiv('printableArea')"  class='btn btn-default' id='btnPrint' value="Print Invoice"  />
-                            </div>                                                           
+                            </div>                                               
                         </div>
                         
                 </div>
@@ -354,8 +351,6 @@
                              var input = $('#productname');
                              input.val(String(data));
                              input.trigger('input');
-
-                               
                         }
                     }
                 });
